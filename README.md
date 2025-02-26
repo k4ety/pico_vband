@@ -7,7 +7,14 @@ USB keyboard, which then allows you to interact with web sites such as
 [Vail](https://vail.woozle.org/#) and 
 [morsecode.me](https://morsecode.me/#/help/practice).
 
+Prototype:
+
 ![Prototype](./pictures/prototype.jpg)
+
+Built, minus mode button but with external LED:
+
+
+![Altoids](./pictures/pico_vband_altoids.jpg)
 
 ## Inspiration
 
@@ -99,6 +106,10 @@ There are few couple of other library dependencies:
 
 ### Building for other boards
 
+>  Note: If you don't want to build this from source, releases are not available as Pi Pico
+>    uf2 files in the Releases section on the rhs of this page. See the
+>    [Releases section](#releases) for more information.
+
 There is nothing particularly specific to the Pi Pico in the code. If you port to another board
 you will need to ensure it has hardware support for USB HID mode. The USB HID code is also the most
 likely to need modifying, which may be as simple as changing the header files that are pulled in.
@@ -128,9 +139,37 @@ event at some future calculated time. It's a bit awkward, but seems to work.
 ## Schematic
 
 The schematic is not exactly difficult. You merely need to connect the connections for the
-morse key/paddle, the mode switch and an LED.
+morse key/paddle and the mode switch. If you require an external LED then, for reference I connected
+mine between pins 12 (GPIO9) and 13 (GND), and changed the define of `LED_PIN` near the top of the
+`.ino` file from `LED_BUILTIN` to `9`.
 
 ![Schematic](./schematic/pico_vband.png)
+
+## Notes about 'straight key' mode
+
+In case it helps somebody down the line, we should briefly discuss 'straight key mode'. As far as
+the dongle knows, there is no such thing. It will be in normal 'twin paddle' mode, but the straight
+key will only be connected to one of the paddles. Generally (possibly depending on the target
+website) it should not matter which paddle pin the key is connected to.
+
+When you depress your straight key for a 'dit' or a 'dah', the dongle does not know or try to determine
+if you are trying to send a 'dit' or a 'dah'. All it does is send the up and down keystrokes and the
+website software determines if you sent a 'dit' or 'dah', depending on how long you held the key down.
+
+You may have to tell whichever website or software you are using with the dongle that you are operating
+in straight key mode, otherwise it may default to presuming you are using a paddle.
+
+## Releases
+
+To make life a little easier for those who are not au-fait with installing and building Arduino
+projects, releases are now made and placed in the [Releases area](https://github.com/grahamwhaley/pico_vband/releases).
+
+To use the uf2 files in the releases you [boot your Pico in USB flash drive mode and drag the uf2
+file onto the drive](https://www.raspberrypi.com/documentation/microcontrollers/pico-series.html#resetting-flash-memory). This is the normal way to load a uf2 file onto a Pi Pico.
+
+| Version | Date       | Changes |
+| ------- | ---------- | ------- |
+| v1.0    | 2025-02-23 | Initial release |
 
 ## Future work
 

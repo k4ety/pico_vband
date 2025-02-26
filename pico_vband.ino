@@ -30,6 +30,10 @@
 #define BUTTON_PIN 4
 
 #define LED_PIN LED_BUILTIN
+// If you want a convinient external LED connection then I used GPIO9/pin12 along with the convinient
+// GND on pin13. Enabling both LEDs at once is not completely trivial with the singleLEDLibrary, so
+// right now you can have one or the other (onboard or outboard).
+//#define LED_PIN 9   // 9 physically convenient next to a gnd
 
 // We are going to try and support:
 // vband - https://hamradio.solutions/vband/
