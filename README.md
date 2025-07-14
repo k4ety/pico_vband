@@ -44,7 +44,7 @@ Morse-IT is very flexible in this regard.  I setup Morse-It to use "[ for Dot an
 By setting things up in this fashion, both Morse-It and MorseMania will be happ with the dongle in
 the same configuration.
 
-=========================================================================================================
+====================================================================================
 
 ## Building the Dongle:
 
@@ -55,13 +55,13 @@ A little searching on Amazon and I found these parts.  Hopefully these or equiva
 
 <img src="./pictures/Amazon_RP2040-zero.jpg" width="400">
 
-=========================================================================================================
+====================================================================================
 
 [3.5mm Audio Jack](https://a.co/d/6CnM4zE)
 
 <img src="./pictures/Amazon_35mm_Jack.jpg" width="400">
 
-=========================================================================================================
+====================================================================================
 
 You can use the header pins that come with the audio jack breakout PCB, pushing the *long* side of the pins
 through from the *top* of the breakout PCB, then soldering them in place on the *bottom* side of the PCB.
@@ -89,7 +89,7 @@ I found that 1 inch diameter 2:1 heat-shrink tubing works well to protect the do
 If you choose to use the option headers, you will need to make a small slit in the tubing for the headers to poke through.
 I found the easiest way to do this is make a small slit perpendicular to the line of pins for each separate pin, prior to heating the tubing.
 
-=========================================================================================================
+====================================================================================
 
 ## Dongle Header Settings:
  -  No jumper 					= L-CTRL/R-CTRL		=>	*Supported by VBAND, Vail, and Morse-It iOS app*
@@ -100,7 +100,7 @@ I found the easiest way to do this is make a small slit perpendicular to the lin
  - Jumper from pin 3-4	= Reverse dit/dah from paddle  =>  *Might be needed if the 3.5mm jack you get is backwards
  from what is expected, or if you prefer the paddle that way*
 
-=========================================================================================================
+====================================================================================
 
 ## Websites
 
